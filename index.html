@@ -13,9 +13,7 @@
             --pariwar-yellow: #FFD200;
             --white: #ffffff;
             --bg-darker: #f0f0f0;
-            /* Slightly darker grey */
             --bg-deep-cream: #f9f4e8;
-            /* Deeper cream/beige */
             --text-gray: #333333;
         }
 
@@ -83,16 +81,12 @@
             z-index: 1;
         }
 
-        /* ZIG-ZAG PRODUCTS (PRESERVED) */
-        .product-showcase {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        /* ANIMATIONS */
         .product-row,
         .news-item,
-        .card {
+        .card,
+        .owner-grid-item,
+        .owner-quote-box {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease-out;
@@ -101,6 +95,13 @@
         .visible {
             opacity: 1 !important;
             transform: translateY(0) !important;
+        }
+
+        /* ZIG-ZAG PRODUCTS */
+        .product-showcase {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .product-row {
@@ -147,7 +148,7 @@
             line-height: 1.6;
         }
 
-        /* SECTION: PACKAGED FOOD WITH DARKER WAVE */
+        /* SECTION: PACKAGED FOOD */
         .packaged-section {
             background-color: var(--bg-darker);
             padding-bottom: 100px;
@@ -174,9 +175,76 @@
             fill: #FFFFFF;
         }
 
-        /* SECTION: FRANCHISE WITH DEEP CREAM DIAGONAL */
+        /* MULTI-OWNER SECTION STYLES */
+        .owner-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #fffdf5 50%, #ffffff 100%);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .owner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .owner-grid-item {
+            text-align: center;
+        }
+
+        .owner-image-wrapper img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 15px 15px 0px var(--pariwar-yellow);
+            border: 4px solid var(--white);
+            margin-bottom: 20px;
+        }
+
+        .owner-name {
+            font-weight: bold;
+            color: var(--pariwar-green);
+            font-size: 1.4rem;
+            margin: 10px 0 5px;
+        }
+
+        .owner-role {
+            color: #777;
+            font-size: 1.1rem;
+        }
+
+        .owner-quote-box {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .owner-quote {
+            font-size: 1.35rem;
+            line-height: 1.8;
+            color: #444;
+            font-style: italic;
+            position: relative;
+        }
+
+        .owner-quote::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--pariwar-yellow);
+            position: absolute;
+            top: -45px;
+            left: -20px;
+            opacity: 0.4;
+        }
+
+        /* SECTION: FRANCHISE */
         .franchise-section {
-            background: linear-gradient(170deg, var(--bg-darker) 12%, var(--bg-deep-cream) 12.1%);
+            background: linear-gradient(170deg, #ffffff 12%, var(--bg-deep-cream) 12.1%);
             padding-top: 40px;
             padding-bottom: 100px;
         }
@@ -212,7 +280,7 @@
         }
 
         .card-content {
-            padding: 25px;
+            padding: 12px;
         }
 
         .card h3 {
@@ -238,7 +306,7 @@
             color: var(--pariwar-green);
         }
 
-        /* GREEN NEWS SECTION (PRESERVED) */
+        /* NEWS SECTION */
         .curve-top {
             line-height: 0;
             fill: var(--pariwar-green);
@@ -355,12 +423,6 @@
             font-size: 1.2rem;
         }
 
-        .footer-contact p {
-            font-size: 1.15rem;
-            line-height: 2;
-            color: #555;
-        }
-
         .copyright {
             text-align: center;
             margin-top: 60px;
@@ -391,16 +453,9 @@
                 gap: 40px;
             }
 
-            .news-item {
-                min-height: auto;
-                animation: none;
+            .owner-grid {
+                grid-template-columns: 1fr;
             }
-
-            .franchise-section {
-                background: var(--bg-deep-cream);
-            }
-
-            /* Flatten diagonal for mobile */
         }
     </style>
 </head>
@@ -465,71 +520,110 @@
         <p class="section-subtitle">हॉटेल परिवारची चव आता घरबसल्या पॅकेटमध्ये उपलब्ध!</p>
         <div class="grid-container">
             <div class="grid-layout">
-                <div class="card">
-                    <img src="images/kerala.jpg" alt="केरला चिप्स">
-                    <div class="card-content">
-                        <h3>केरला चिप्स</h3>
-                    </div>
+                <div class="card"><img src="images/kerala.jpg">
+                    <h3>केरला चिप्स</h3>
                 </div>
-                <div class="card">
-                    <img src="images/saltedchips.jpg" alt="सॉल्टेड केळी चिप्स">
-                    <div class="card-content">
-                        <h3>सॉल्टेड केळी चिप्स</h3>
-                    </div>
+                <div class="card"><img src="images/saltedchips.jpg">
+                    <h3>सॉल्टेड केळी चिप्स</h3>
                 </div>
-                <div class="card">
-                    <img src="images/Maka.jpg" alt="मका चिवडा">
-                    <div class="card-content">
-                        <h3>मका चिवडा</h3>
-                    </div>
+                <div class="card"><img src="images/Maka.jpg">
+                    <h3>मका चिवडा</h3>
                 </div>
-                <div class="card">
-                    <img src="images/batata.jpg" alt="बटाटा चिवडा">
-                    <div class="card-content">
-                        <h3>बटाटा चिवडा</h3>
-                    </div>
+                <div class="card"><img src="images/batata.jpg">
+                    <h3>बटाटा चिवडा</h3>
                 </div>
-                <div class="card">
-                    <img src="images/masala.jpg" alt="मसाला चिप्स">
-                    <div class="card-content">
-                        <h3>मसाला चिप्स</h3>
-                    </div>
+                <div class="card"><img src="images/masala.jpg">
+                    <h3>मसाला चिप्स</h3>
                 </div>
-                <div class="card">
-                    <img src="images/farsan.jpg" alt="फरसाण">
-                    <div class="card-content">
-                        <h3>फरसाण</h3>
-                    </div>
+                <div class="card"><img src="images/farsan.jpg">
+                    <h3>फरसाण</h3>
                 </div>
-                <div class="card">
-                    <img src="images/kalimiri.jpg" alt="काळी मिरी चिप्स">
-                    <div class="card-content">
-                        <h3>काळी मिरी चिप्स</h3>
-                    </div>
+                <div class="card"><img src="images/kalimiri.jpg">
+                    <h3>काळी मिरी चिप्स</h3>
                 </div>
             </div>
         </div>
     </div>
+
+    <section class="owner-section">
+        <h2 class="section-title">आमची प्रेरणा</h2>
+        <div class="owner-grid">
+            <div class="owner-grid-item">
+                <div class="owner-image-wrapper"><img src="images/seema.jpg" alt="Owner 1"></div>
+                <div class="owner-name">सौ.सीमा नाईक</div>
+                <div class="owner-role">संस्थापक</div>
+            </div>
+            <div class="owner-grid-item">
+                <div class="owner-image-wrapper"><img src="images/sandeep.jpg" alt="Owner 2"></div>
+                <div class="owner-name">श्री.संदीप नाईक</div>
+                <div class="owner-role">सह-संस्थापक</div>
+            </div>
+            <div class="owner-grid-item">
+                <div class="owner-image-wrapper"><img src="images/shubham.jpg" alt="Owner 3"></div>
+                <div class="owner-name">श्री.शुभम नाईक</div>
+                <div class="owner-role">सह-संस्थापक</div>
+            </div>
+        </div>
+        <div class="owner-quote-box">
+            <div class="owner-quote">
+                "हॉटेल परिवारची सुरुवात १८ वर्षांपूर्वी एका स्वप्नातून झाली – अस्सल चव आणि घरगुती मायेचा ओलावा
+                नारायणगावला देण्याचे स्वप्न. आज २०+ वर्षांच्या या प्रवासात तुम्ही दिलेल्या प्रेमामुळेच आम्ही इथपर्यंत
+                पोहोचलो आहोत. शुद्धता आणि गुणवत्ता हीच आमची परंपरा आहे आणि ती आम्ही सदैव जपणार आहोत."
+            </div>
+        </div>
+    </section>
 
     <div id="franchise" class="franchise-section">
         <h2 class="section-title">आमच्या शाखा</h2>
         <p class="section-subtitle">महाराष्ट्रभर पसरलेली आमची चव.</p>
         <div class="grid-container">
             <div class="grid-layout">
-                <div class="card">
-                    <img src="images/branch1.jpg">
+                <div class="card"><img src="images/narayangoan.jpg">
                     <div class="card-content">
                         <h3>नारायणगाव (मुख्य)</h3>
-                        <p>पुणे-नाशिक महामार्ग</p>
-                        <a href="#" class="loc-btn">लोकेशन पहा</a>
+                        <p>पुणे-नाशिक महामार्ग</p><a href="#" class="loc-btn">लोकेशन पहा</a>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="images/branch2.jpg">
+                <div class="card"><img src="images/pimpri.jpg">
                     <div class="card-content">
-                        <h3>पुणे शाखा</h3>
-                        <p>बाणेर रोड, पुणे</p>
-                        <a href="#" class="loc-btn">लोकेशन पहा</a>
+                        <h3>पिंपरी शाखा </h3>
+                        <p>पुणे</p><a href="#" class="loc-btn">लोकेशन पहा</a>
+                    </div>
+                </div>
+                <div class="card"><img src="images/sangamner.jpg">
+                    <div class="card-content">
+                        <h3>संगमनेर शाखा</h3>
+                        <p>पुणे-नाशिक महामार्ग</p><a href="#" class="loc-btn">लोकेशन पहा</a>
+                    </div>
+                </div>
+                <div class="card"><img src="images/dhole.jpg">
+                    <div class="card-content">
+                        <h3>ढोले-पाटील रोड</h3>
+                        <p>पुणे</p><a href="#" class="loc-btn">लोकेशन पहा</a>
+                    </div>
+                </div>
+                <div class="card"><img src="images/sinhgad.jpg">
+                    <div class="card-content">
+                        <h3>सिंहगड रोड</h3>
+                        <p>पुणे</p><a href="#" class="loc-btn">लोकेशन पहा</a>
+                    </div>
+                </div>
+                <div class="card"><img src="images/moshi.jpg">
+                    <div class="card-content">
+                        <h3>मोशी</h3>
+                        <p>पुणे</p><a href="#" class="loc-btn">लोकेशन पहा</a>
+                    </div>
+                </div>
+                <div class="card"><img src="images/karvenagar.jpg">
+                    <div class="card-content">
+                        <h3>कर्वेनगर</h3>
+                        <p>पुणे</p><a href="#" class="loc-btn">लोकेशन पहा</a>
+                    </div>
+                </div>
+                <div class="card"><img src="images/thane.jpg">
+                    <div class="card-content">
+                        <h3>ठाणे</h3>
+                        <p>मुंबई</p><a href="#" class="loc-btn">लोकेशन पहा</a>
                     </div>
                 </div>
             </div>
@@ -555,6 +649,14 @@
                 <div class="news-img-wrapper"><img src="images/news2.jpg"></div>
                 <p class="news-desc">दैनिक सकाळ - कढीवडा विशेष</p>
             </div>
+            <div class="news-item">
+                <div class="news-img-wrapper"><img src="images/punyanagari.jpg"></div>
+                <p class="news-desc">पुण्य नगरी - "आपणच आपले सल्लागार बना"</p>
+            </div>
+            <div class="news-item">
+                <div class="news-img-wrapper"><img src="images/krushiratna.jpg"></div>
+                <p class="news-desc">'डॉ. पंजाबराव देशमुख कृषिरत्न पुरस्कार</p>
+            </div>
         </div>
     </div>
 
@@ -565,25 +667,25 @@
                 <ul class="footer-links">
                     <li><a href="#specials">खास वैशिष्ट्ये</a></li>
                     <li><a href="#packaged">पॅकेज फूड</a></li>
-                    <li><a href="#franchise">आमच्या शाखा</a></li>
+                    <li><a href="#franchise">शाखा</a></li>
                     <li><a href="#achievements">यश</a></li>
                 </ul>
             </div>
             <div class="footer-col footer-contact">
                 <h3>पत्ता व वेळ</h3>
-                <p>📍 <strong>पत्ता:</strong> पुणे-नाशिक महामार्ग, नारायणगाव, ता. जुन्नर, जि. पुणे.</p>
-                <p>📞 <strong>फोन:</strong> <a href="tel:1111111111">1111111111</a></p>
-                <p>🕒 <strong>वेळ:</strong> सकाळी ७:०० ते रात्री ९:००</p>
+                <p>📍 पुणे-नाशिक महामार्ग, नारायणगाव, ता. जुन्नर, जि. पुणे.</p>
+                <p>📞 ९८६०९१४७५४ | ९७३००३२०३२</p>
+                <p>🕒 ७:०० ते ९:००</p>
             </div>
         </div>
-        <div class="copyright">&copy; 2026 हॉटेल परिवार | नारायणगाव | Quality & Clean Food Since 20+ Years</div>
+        <div class="copyright">&copy; 2026 हॉटेल परिवार | Quality & Clean Food Since 20+ Years</div>
     </footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.product-row, .news-item, .card').forEach(el => observer.observe(el));
+        document.querySelectorAll('.product-row, .news-item, .card, .owner-grid-item, .owner-quote-box').forEach(el => observer.observe(el));
     </script>
 </body>
 
