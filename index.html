@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हॉटेल परिवार - इथली लज्जतच न्यारी..!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@700&family=Yantramanav:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pariwar-green: #006837;
+            --pariwar-yellow: #FFD200;
+        }
+        body { font-family: 'Yantramanav', sans-serif; margin: 0; background-color: #f9f9f9; }
+        
+        /* LANDING BACKGROUND */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/landscape_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 { font-family: 'Martel', serif; font-size: 4rem; margin: 0; color: var(--pariwar-yellow); }
+
+        /* NAVIGATION TABS */
+        nav { display: flex; justify-content: center; background: var(--pariwar-green); sticky; top: 0; z-index: 1000; }
+        nav button { background: none; border: none; color: white; padding: 15px 30px; font-size: 1.3rem; cursor: pointer; font-weight: bold; }
+        nav button.active { background: var(--pariwar-yellow); color: var(--pariwar-green); }
+
+        .content { max-width: 1100px; margin: 40px auto; padding: 20px; }
+        .tab-content { display: none; }
+        .active-tab { display: block; }
+
+        /* PRODUCT GRID */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-bottom: 4px solid var(--pariwar-green); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card h3 { padding: 15px; margin: 0; text-align: center; color: var(--pariwar-green); }
+
+        /* ACHIEVEMENTS */
+        .news-section { text-align: center; }
+        .news-img { max-width: 80%; border: 5px solid #ddd; border-radius: 8px; }
+
+        .contact-card { background: var(--pariwar-green); color: white; padding: 40px; border-radius: 15px; text-align: center; }
+        footer { text-align: center; padding: 20px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>हॉटेल परिवार</h1>
+    <p style="font-size: 1.5rem;">इथली लज्जतच न्यारी..!</p>
+</div>
+
+<nav>
+    <button onclick="showTab('achievements', this)" class="active">यश (Achievements)</button>
+    <button onclick="showTab('products', this)">आमचे पदार्थ (Products)</button>
+    <button onclick="showTab('contact', this)">संपर्क (Contact)</button>
+</nav>
+
+<div class="content">
+    <div id="achievements" class="tab-content active-tab">
+        <div class="news-section">
+            <h2 style="color: var(--pariwar-green);">२० वर्षांची यशस्वी परंपरा</h2>
+            <p>आमच्या स्वादिष्ट प्रवासाची वृत्तपत्रातील काही कात्रणे.</p>
+            <img src="images/news_clipping.jpg" class="news-img" alt="Prabhat News Paper Clipping">
+        </div>
+    </div>
+
+    <div id="products" class="tab-content">
+        <h2 style="text-align: center; color: var(--pariwar-green);">आमचे मेनू</h2>
+        <div class="product-grid">
+            <div class="card"><img src="images/misal.jpg"><h3>स्पेशल मिसळ</h3></div>
+            <div class="card"><img src="images/vadapav.jpg"><h3>वडापाव</h3></div>
+            <div class="card"><img src="images/bhel.jpg"><h3>ओली / सुकी भेळ</h3></div>
+            <div class="card"><img src="images/bhaji.jpg"><h3>कांदा भजी / मूग भजी</h3></div>
+        </div>
+    </div>
+
+    <div id="contact" class="tab-content">
+        <div class="contact-card">
+            <h2>आमच्याशी संपर्क साधा</h2>
+            <p>📍 पुणे-नाशिक महामार्ग, कुकडी कॉलनी जवळ, नारायणगाव, ता. जुन्नर, जि. पुणे.</p>
+            <p>📞 ९०९६९३१०९९ / ९०९६९३१०९९</p>
+            <p>📸 इंस्टाग्राम: @hotel_pariwar</p>
+        </div>
+    </div>
+</div>
+
+<footer>&copy; 2026 हॉटेल परिवार | Quality & Clean Food</footer>
+
+<script>
+    function showTab(id, btn) {
+        let tabs = document.getElementsByClassName('tab-content');
+        let btns = document.getElementsByTagName('button');
+        for (let tab of tabs) tab.style.display = 'none';
+        for (let b of btns) b.classList.remove('active');
+        document.getElementById(id).style.display = 'block';
+        btn.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
