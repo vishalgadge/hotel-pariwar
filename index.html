@@ -423,13 +423,20 @@
             font-size: 1.2rem;
         }
 
-        .copyright {
+
+        .copyright-bar {
             text-align: center;
             margin-top: 60px;
-            font-size: 0.85rem;
-            color: #ffffff;
             background: #000000;
             padding: 20px;
+            color: #ffffff;
+        }
+
+        .visitor-counter {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: var(--pariwar-yellow);
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -684,7 +691,12 @@
                 <p>🕒 ७:०० ते ९:००</p>
             </div>
         </div>
-        <div class="copyright">&copy; 2026 हॉटेल परिवार | Quality & Clean Food Since 20+ Years</div>
+        <div class="copyright-bar">
+            <div>&copy; 2026 हॉटेल परिवार | Quality & Clean Food Since 20+ Years</div>
+            <div class="visitor-counter">
+                आज भेट दिलेले ग्राहक: <span id="count">0</span>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -692,6 +704,14 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.product-row, .news-item, .card, .owner-grid-item, .owner-quote-box').forEach(el => observer.observe(el));
+        // Basic Visitor Counter Logic (Mockup for display)
+        function updateCounter() {
+            let count = localStorage.getItem('visitorCount') || 4500; // Starting base number
+            count = parseInt(count) + 1;
+            localStorage.setItem('visitorCount', count);
+            document.getElementById('count').innerText = count;
+        }
+        window.onload = updateCounter;
     </script>
 </body>
 
